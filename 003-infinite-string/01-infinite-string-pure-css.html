@@ -1,0 +1,184 @@
+
+    <section class="top-infinite-brands">
+        <div class="top-c-rail-wrap" >
+            <div class="top-c-rail heading u-anim-translate is-inview">
+                <div class="top-c-rail_inner">
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">All Products Can Be Customized</span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">
+                            <svg  class="top-c-rail__img" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="5" cy="5" r="5" fill="#FFAD31"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">All Products Can Be Customized</span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">
+                            <svg  class="top-c-rail__img" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="5" cy="5" r="5" fill="#FFAD31"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">All Products Can Be Customized</span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">
+                            <svg  class="top-c-rail__img" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="5" cy="5" r="5" fill="#FFAD31"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="top-c-rail_inner">
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">All Products Can Be Customized</span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">
+                            <svg  class="top-c-rail__img" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="5" cy="5" r="5" fill="#FFAD31"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">All Products Can Be Customized</span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">
+                            <svg  class="top-c-rail__img" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="5" cy="5" r="5" fill="#FFAD31"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">All Products Can Be Customized</span>
+                    </div>
+                    <div class="top-c-rail_item">
+                        <span class="top-c-rail_label">
+                            <svg  class="top-c-rail__img" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="5" cy="5" r="5" fill="#FFAD31"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    .top-infinite-brands{
+        --c-rail-bg:#FFE6A7;
+        --c-rail-color:#FF7121;
+        --c-rail-width:100%;
+        --c-rail-height:60px; 
+        transform: rotate(2.5deg);       
+    }
+    .top-c-rail-wrap{
+        margin:0px auto;
+        position: relative;
+        width:100%;
+        max-width: var(--c-rail-width);
+        width: var(--c-rail-width);
+        text-align: center;
+        background-color: var(--c-rail-bg);
+    }
+
+    .top-c-rail {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        z-index: 1;
+        height: 60px;
+        height: var(--c-rail-height);
+
+    }
+    .top-c-rail.-heading .top-c-rail_inner {
+        -webkit-animation-duration: 40s !important;
+        animation-duration: 40s !important
+    }
+
+    .top-c-rail_item {
+        padding-top:0.25rem;
+        padding-bottom: 0.25rem;
+        position: relative;
+        padding-right: 1.25rem;
+        display: flex;
+        align-items: center;
+        width: auto;
+    }
+    .top-c-rail_item .o-icon{display: none;}
+    .top-c-rail_label {
+        font-size: 20px;
+        padding-right: 36px;
+        font-family: transducer-extended, sans-serif;
+        font-weight: 500;
+        text-transform: capitalize;
+        color: #fff;
+        color: var(--c-rail-color);
+        text-shadow: none;
+        letter-spacing: 0.2px;
+    }
+
+    .top-c-rail__img{
+        height: 10px;
+        width: 10px;
+    }
+    .top-c-rail .top-c-rail_inner {
+        display: flex;
+        height: 100%;
+        -webkit-animation-name: railTop;
+        animation-name: railTop;
+        -webkit-animation-duration: 40s !important;
+        animation-duration: 40s !important;
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    @-webkit-keyframes railTop {
+        0% {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0)
+        }
+
+        100% {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0)
+        }
+    }
+
+    @keyframes railTop {
+        0% {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0)
+        }
+
+        100% {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0)
+        }
+    }
+
+    .o-icon {
+        display: block;
+    }
+
+    .top-c-rail.-heading .top-c-rail_item .o-icon {
+        margin: 0.675rem 0 0 0;
+    }
+
+    @media (min-width: 64rem) {
+        .top-c-rail.-heading .top-c-rail_item .o-icon {
+            margin: 0.875rem 0 0 0;
+        }
+    }
+    </style>

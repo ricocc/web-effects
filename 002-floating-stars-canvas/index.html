@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Particle Animation (Canvas)</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Set canvas size to fill the entire window
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const floatingSpeed = 0.5; // Adjust this value to control the floating speed
+        const sizeRange = { min: 1, max: 2 }; // Adjust these values to control the size range
+
+        // Generate random particles
+        const particles = [];
+        const particleCount = 100;
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * (sizeRange.max - sizeRange.min) + sizeRange.min,
+                speed: Math.random() * floatingSpeed + 1
+            });
+        }
+
+        // Animation loop
+        function animate() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Update particle positions
+            particles.forEach(particle => {
+                particle.y -= particle.speed;
+
+                // Reset particle position if it goes off-screen
+                if (particle.y < 0) {
+                    particle.x = Math.random() * canvas.width;
+                    particle.y = canvas.height;
+                }
+
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                ctx.fillStyle = "white";
+                ctx.fill();
+            });
+
+            // Call animate recursively
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation
+        animate();
+    </script>
+</body>
+</html>

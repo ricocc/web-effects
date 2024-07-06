@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>001 background opacity gradient</title>
+</head>
+<style>
+:root {
+    --black: #0a0a0a;
+    --white: white;
+    --charcoal: #191a1a;
+    --green: #1ff990;
+    --gradient-animation--margin-top: 0px;
+    --gradient-animation--margin-bottom: 0px;
+    --gradient-animation--margin-left: 0px;
+    --gradient-animation--margin-right: 0px;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: Inter Display, sans-serif;
+    font-size: 1rem;
+    line-height: 1.3;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior: none;
+}
+
+/* background effect */
+.background_image {
+  z-index: -1;
+  width: 115%;
+  height: 115%;
+  max-width: none;
+  opacity: .9;
+  object-fit: cover;
+  object-position: 50% 50%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform .4s linear;
+  display: block;
+  position: relative;
+}
+
+.background_component {
+  z-index: -1;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+.background_image-container {
+    width: 100%;
+    height: 100vh;
+    max-height: 50rem;
+    max-width: 87rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.background_image-wrapper {
+  width: 100%;
+  height: 100vh;
+  max-height: 50rem;
+  max-width: 87rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+.background_edge-gradient {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, var(--black), rgba(10, 10, 10, 0) 38%, rgba(10, 10, 10, 0) 62%, var(--black));
+    position: absolute;
+}
+.background_image-gradient {
+  height: 9rem;
+  background-image: linear-gradient(to top, var(--black), rgba(0, 0, 0, .82) 32%, rgba(0, 0, 0, 0));
+  position: absolute;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+
+.background_gradient-wrapper {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  overflow: hidden;
+  transform: translate(0);
+}
+
+.background_gradient {
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(circle farthest-corner at 50% 50%, rgba(0, 0, 0, 0), var(--black) 65%);
+}
+.background_image {
+    width: 100%;
+    height: 100%;
+  }
+.background_gradient {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0), #000 60%);
+}
+@media screen and (max-width: 991px){
+  .background_image {
+    width: 100%;
+    height: 100%;
+}
+.background_edge-gradient {
+    display: none;
+}
+.background_gradient {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0), #000 60%);
+}
+}
+
+
+</style>
+<body>
+
+  <div class="background_component" style="opacity: 1;">
+    <div class="background_image-container">
+      <div class="background_gradient-wrapper">
+        <div class="background_gradient"
+          style="background: radial-gradient(at 101% 20%, hsla(0, 0.00%, 0.00%, 0.00), var(--black) 46%);"></div>
+      </div>
+      <div class="background_edge-gradient"></div>
+      <div class="background_image-wrappe">
+        <img
+          src="pexels-miguel-de-la-rosa-506672258-16175210.jpg" 
+          class="background_image" >
+        </div>
+      <div class="background_image-gradient"></div>
+    </div>
+  </div>
+
+  <!-- https://www.bootcdn.cn/jquery/ -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"  crossorigin="anonymous"></script>
+
+
+  <script>
+    $(document).mousemove(function (event) {
+      let windowWidth = $(window).width();
+      // Only execute if window width is greater than 990px
+      if (windowWidth > 990) {
+        let windowHeight = $(window).height();
+        let intensity = 3;
+        let mouseXpercentage = Math.round((event.pageX / windowWidth) * 100);
+        let mouseYpercentage = Math.round((event.pageY / windowHeight) * 100);
+        let mouseXpercentagetenx = Math.round(
+          ((event.pageX / windowWidth) * 10 - 5) * intensity
+        );
+        let mouseYpercentagetenx = Math.round(
+          ((event.pageY / windowHeight) * 10 - 5) * intensity
+        );
+    
+        console.log(
+          `x-percent is ${mouseXpercentagetenx}`,
+          `y-percent is ${mouseYpercentagetenx}`
+        );
+    
+        $(".background_gradient").css(
+          "background",
+          "radial-gradient(at " +
+            mouseXpercentage +
+            "% " +
+            mouseYpercentage +
+            "%, hsla(0, 0.00%, 0.00%, 0.00), var(--black) 46%)"
+        );
+    
+        $(".background_image").css(
+          "transform",
+          "translate(" + mouseXpercentagetenx + "px," + mouseYpercentagetenx + "px)"
+        );
+      }
+    });
+    </script>
+
+</body>
+
+</html>
