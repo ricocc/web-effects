@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 001 - Cursor following </title>
+</head>
+<link rel="stylesheet" href="common/reset.css">
+<link rel="stylesheet" href="cursor.css">
+<link rel="stylesheet" href="custom.css">
+
+<body class="case-test">
+
+  <!-- Copy HTML  | Cursor content -->
+   <!-- <div id="cursor"></div> -->
+   <div id="cursor" >
+      <a href="" target="" class="popin-button__wrapper hover " id="play-button">
+          <div class="cursor-button popin-button bg-yellow size-xl">
+            Click ↗
+          </div>
+      </a>        
+      <a href="" target="" class="popin-button__wrapper hover " id="start-button">
+          <div class="cursor-button popin-button bg-green size-xl">
+              Start ↗
+          </div>
+      </a>    
+  </div>
+
+   <!-- End Copy | Cursor content -->
+
+   <!-- Effect Content -->
+    <!-- 效果来源： https://popingroup.com/
+    https://popingroup.com/wp-content/themes/popin/assets/js/components/cursor.js -->
+
+    <div class="effect">
+      <div class="effect-tip">
+        <h1>Cursor 鼠标跟随效果</h1>
+        <p>
+          hover 效果的圆点颜色变化和按钮的显示由 CSS 进行控制，可在目前已有的基础上进行定制调整
+        </p>
+
+      </div>
+      <div class="effect-box">
+          <a href="" class="effect-hover bg-black">bg-black</a>
+          <a href="" class="effect-hover bg-green">bg-green</a>
+          <a href="" class="effect-hover bg-yellow">bg-yellow</a>
+          <a href="" class="effect-hover bg-blue">bg-blue</a>
+          <a href="" class="effect-hover bg-red">bg-red</a>
+      </div>
+      <div class="effect-box">
+        <a href="" class="effect-btn hover-play bg-green">Hover Action</a>
+        <a href="" class="effect-btn start-hover  hover-play bg-red">Hover   Action 2
+        </a>
+
+    </div>
+
+   <!-- End Effect Content -->
+
+
+   <!-- Copy JS | JS Content -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module" >
+    import Cursor from "./cursor.js";  
+    const cursor = new Cursor();  
+  </script>
+</body>
+</html>

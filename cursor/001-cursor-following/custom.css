@@ -1,0 +1,55 @@
+  /* Case CSS */
+
+.case-test{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+h1{
+  font-size: 48px;
+  font-weight: bold;
+}
+p{
+  font-size:16px;
+  margin:12px auto 48px;
+}
+.effect{
+  position: relative;
+  margin:10% auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 20px; */
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.effect-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  max-width: 640px;
+  width: 100%;
+}
+.effect-hover{
+  border-radius:12px;
+  width: calc(20% - 10px);
+  height: 120px;
+  display: block;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.effect-btn{
+  width: calc(50% - 10px);
+  height: 200px;
+  display: block;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius:12px;
+}
