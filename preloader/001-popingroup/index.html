@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>001 Loader</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="libs/splitting.css">
+  <link rel="stylesheet" href="libs/splitting-cells.css">
+  <link rel="stylesheet" href="assets/preloader.css">
+</head>
+
+<body>
+  <div class="loading-screen start-hover">
+    <div class="loading-screen__text color-green" id="green-loading" >Loading</div>
+    <div class="loading-screen__progress bg-red">
+      <div class="ls__text-wrapper hover-blue">
+        <div class="loading-screen__text color-pink" id="pink-loading">
+          Loading
+        </div>
+        <div class="loading-screen__enter color-pink">
+          Ready
+        </div>
+      </div>
+    </div>
+    <div class="loading-screen__percent loading-num">0%</div>
+
+    <div class="loading-screen__start-button-mobile">
+      <a href="#" target="" class="popin-button__wrapper hover " id="">
+        <div class="popin-button bg-white size-xl">
+          Enter &nbsp;&nbsp;
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="page-transition">
+    <div class="pt__curtain --first"></div>
+    <!-- <div class="pt__curtain --second"></div> -->
+    <div class="pt__curtain --third"></div>
+  </div>
+
+
+  <!-- Example Content -->
+  <style>
+    .example {
+      width: 90%;
+      margin: 10% auto 80px;
+      max-width: 960px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #101010;
+      text-align: center;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.33;
+      margin: 16px auto 32px;
+      text-align: center;
+    }
+
+    ul {
+      display: grid;
+      grid-gap: 16px;
+      /* 元素间隔 */
+      list-style-type: none;
+      /* 移除列表默认样式 */
+      padding: 0;
+      /* 移除默认padding */
+    }
+
+    /* 767px以上使用3栏布局 */
+    @media (min-width: 768px) {
+      ul {
+        grid-template-columns: repeat(3, 1fr);
+        /* 三栏布局 */
+      }
+    }
+
+    /* 468px到767px使用两栏布局 */
+    @media (min-width: 468px) and (max-width: 767px) {
+      ul {
+        grid-template-columns: repeat(2, 1fr);
+        /* 两栏布局 */
+      }
+    }
+
+    /* 467px以下使用单栏布局 */
+    @media (max-width: 467px) {
+      ul {
+        grid-template-columns: 1fr;
+        /* 单栏布局 */
+      }
+    }
+  </style>
+  <div class="example">
+    <h1>Example Web</h1>
+    <p>All picture from pexels</p>
+    <ul>
+      <li><img src="assets/01.jpg" alt=""></li>
+      <li><img src="assets/02.jpg" alt=""></li>
+      <li><img src="assets/03.jpg" alt=""></li>
+      <li><img src="assets/04.jpg" alt=""></li>
+      <li><img src="assets/05.jpg" alt=""></li>
+      <li><img src="assets/06.jpg" alt=""></li>
+    </ul>
+  </div>
+
+  <!-- End Example Content -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
+  <script src="libs/gsap.min.js"></script>
+  <script src="libs/splitting.min.js"></script>
+  <script type="module" src="preloader.js"></script>
+</body>
+
+</html>
