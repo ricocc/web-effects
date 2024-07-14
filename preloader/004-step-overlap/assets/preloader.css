@@ -1,0 +1,132 @@
+:root {
+  --color-0: #0a0a0a;
+  --color-50: #202020;
+  --color-100: #303030;
+  --color-200: #505050;
+  --color-300: #707070;
+  --color-400: #909090;
+  --color-500: #a0a0a0;
+  --color-600: #d0d0d0;
+  --color-700: #e0e0e0;
+  --color-800: #f3f4f7;
+  --color-900: #ffffff;
+  --color-999-basis: 0, 0%, 100%;
+  --loading-color: #0e100f;
+  --loading-bg: #fff;
+  --loading-block-01: #fcf2ea;
+  --loading-block-02: #ff5a19;
+}
+:root.dark {
+  --loading-color: #f7f7f8;
+  --loading-bg: #0e100f;
+  --loading-block-01: var(--color-900);
+}
+.loading-block {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.upperone {
+  background-color: var(--loading-bg);
+  z-index: 999110;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 100;
+  flex-direction: column;
+}
+.downone {
+  background-color: var(--loading-block-01);
+  z-index: 999109;
+}
+.downtwo {
+  background-color: var(--loading-block-02);
+  z-index: 999108;
+}
+
+.loading-block-moveup {
+  transform: translateY(-100%);
+}
+
+.init-Ref {
+  opacity: 0;
+}
+
+.preloader-title {
+  font-size: 28px;
+  opacity: 0;
+  font-weight: normal;
+  color: var(--color-100);
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
+}
+/* Preloader text info */
+.preloader-splitting .splitting .char,
+.preloader-splitting.splitting .char {
+  opacity: 0;
+  padding: 0 3px;
+  animation: preloader-slide 1.25s cubic-bezier(0.5, 0, 0.5, 1) both;
+  animation-delay: calc(100ms * var(--char-index));
+}
+
+@keyframes preloader-slide {
+  from {
+    transform: translateX(1em) rotate(-0turn) scale(1);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0) scale(1);
+    filter: blur(0px);
+  }
+}
+@keyframes preloader-pic {
+  from {
+    transform: translateY(0) rotate(0deg);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(50px) rotate(-10deg);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.preloader-pic {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: 0 auto;
+  top: 50%;
+  text-align: center;
+}
+.preloader-pic__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 250px;
+}
+
+.preloader-progress{
+  position: absolute;
+  display: block;
+  right: 40px;
+  bottom: 40px;
+  margin-top: 24px;
+  opacity: 1;
+}
+.preloader-progress-count{
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--color-100);
+  letter-spacing:2px;
+}

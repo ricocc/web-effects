@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>001 Loader</title>
+  <title>004 Step Overlap Preloader</title>
   <link rel="stylesheet" href="assets/reset.css">
   <link rel="stylesheet" href="libs/splitting.css">
   <link rel="stylesheet" href="libs/splitting-cells.css">
@@ -12,36 +11,40 @@
 </head>
 
 <body>
-  <div class="loading-screen start-hover">
-    <div class="loading-screen__text color-green" id="green-loading" >Loading</div>
-    <div class="loading-screen__progress bg-red">
-      <div class="ls__text-wrapper hover-blue">
-        <div class="loading-screen__text color-pink" id="pink-loading">
-          Loading
-        </div>
-        <div class="loading-screen__enter color-pink">
-          Ready
+  <div class="preloader">
+    <div class="loading-block upperone">
+      <div class="preloader-title preloader-splitting words chars splitting">
+        <span class="word" data-word="Creative" style="--word-index: 0;">
+          <span class="char" data-char="C" style="--char-index: 0;">C</span>
+          <span class="char" data-char="r" style="--char-index: 1;">r</span>
+          <span class="char" data-char="e" style="--char-index: 2;">e</span>
+          <span class="char" data-char="a" style="--char-index: 3;">a</span>
+          <span class="char" data-char="t" style="--char-index: 4;">t</span>
+          <span class="char" data-char="i" style="--char-index: 5;">i</span>
+          <span class="char" data-char="v" style="--char-index: 6;">v</span>
+          <span class="char" data-char="e" style="--char-index: 7;">e</span>
+        </span>
+        <span class="whitespace"></span>
+        <span class="word" data-word="Designer" style="--word-index: 1;">
+          <span class="char" data-char="D" style="--char-index: 8;">D</span>
+          <span class="char" data-char="e" style="--char-index: 9;">e</span>
+          <span class="char" data-char="s" style="--char-index: 10;">s</span>
+          <span class="char" data-char="i" style="--char-index: 11;">i</span>
+          <span class="char" data-char="g" style="--char-index: 12;">g</span>
+          <span class="char" data-char="n" style="--char-index: 13;">n</span>
+          <span class="char" data-char="e" style="--char-index: 14;">e</span>
+          <span class="char" data-char="r" style="--char-index: 15;">r</span>
+        </span>
+      </div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-count">
+          <span class="loading-num"></span>%
         </div>
       </div>
     </div>
-    <div class="loading-screen__percent loading-num">0%</div>
-
-    <div class="loading-screen__start-button-mobile">
-      <a href="#" target="" class="popin-button__wrapper hover " id="">
-        <div class="popin-button bg-white size-xl">
-          Enter &nbsp;&nbsp;
-        </div>
-      </a>
-    </div>
+    <div class="loading-block downone"></div>
+    <div class="loading-block downtwo"></div>
   </div>
-
-  <div class="page-transition">
-    <div class="pt__curtain --first"></div>
-    <!-- <div class="pt__curtain --second"></div> -->
-    <div class="pt__curtain --third"></div>
-  </div>
-
-
   <!-- Example Content -->
   <style>
     .example {
@@ -114,9 +117,9 @@
     </ul>
   </div>
   <!-- End Example Content -->
+
   <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script> -->
   <script src="libs/gsap.min.js"></script>
-  <script src="libs/splitting.min.js"></script>
   <script type="module" src="preloader.js"></script>
 </body>
 

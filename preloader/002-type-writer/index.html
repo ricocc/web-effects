@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading 002 Type Write</title>
+  </head>
+  <body>
+    <!-- START preloader-wrapper -->
+    <div class="preloader-wrapper" id="preloader">
+      <div class="preloader-inner">
+        <h1 class="typing-text preloader-text"></h1>
+      </div>
+      <div class="noise"></div>
+    </div>
+    <!-- END preloader-wrapper -->
+    <style>
+        .noise {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url(assets/noise.gif);
+            background-position: 0 0, 0 0;
+            background-size: auto, cover;
+            background-repeat: repeat, no-repeat;
+            opacity: 0.03;
+        }
+    </style>
+    <style>
+      /*------------------------------------------------------------------
+        # preloader style
+        -------------------------------------------------------------------*/
+      .preloader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 9999999;
+        text-align: center;
+        overflow: hidden;
+        background-color: #edeff8;
+        transition: 1s;
+      }
+
+      .preloader-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transition: 0.7s ease;
+        transform: translate(-50%, -50%);
+      }
+
+      .preloader-wrapper.loaded {
+        height: 0;
+      }
+      .preloader-wrapper.loaded img {
+        opacity: 0;
+      }
+      .preloader-text {
+        font-size: 60px;
+        font-size: clamp(48px, 36.323943662px + 2.5352112676vw, 96px);
+        line-height: normal;
+        color: #222;
+        margin-top: -128px;
+      }
+
+      .typing-text::after {
+        content: "|";
+        animation: blink ease 0.7s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
+    <script>
+        window.onload = function() {
+                function preLoader() {
+                    var body = document.body;
+                    body.classList.add("loaded");
+                    var preloaderWrappers = document.querySelectorAll(".preloader-wrapper");
+                    preloaderWrappers.forEach(function(wrapper) {
+                        wrapper.classList.add("loaded");
+                    });
+                    var preloaderTexts = document.querySelectorAll(".preloader-text");
+                    preloaderTexts.forEach(function(text) {
+                        text.style.opacity = 0;
+                        text.style.transition = 'opacity 500ms ease-out';
+                        setTimeout(function() {
+                            text.remove();
+                        }, 500);
+                    });
+                }
+                setTimeout(function () {
+                    preLoader();
+                },6000);
+        };
+        //loading slow force hide preloader
+        //（可选）强制6秒后执行结束Loading
+        //   setTimeout(function () {
+        //     var perload = document.getElementById("preloader");
+        //     perload.style.display = "none";
+        //   }, 6000);
+      // get the element
+      const text = document.querySelector(".typing-text");
+      // make a words array
+      const words = ["design.", "code.", "repeat."];
+      // start typing effect
+      setTyper(text, words);
+      function setTyper(element, words) {
+        const LETTER_TYPE_DELAY = 75;
+        const WORD_STAY_DELAY = 1200;
+        const DIRECTION_FORWARDS = 0;
+        const DIRECTION_BACKWARDS = 1;
+        var direction = DIRECTION_FORWARDS;
+        var wordIndex = 0;
+        var letterIndex = 0;
+        var wordTypeInterval;
+        startTyping();
+        function startTyping() {
+          wordTypeInterval = setInterval(typeLetter, LETTER_TYPE_DELAY);
+        }
+
+        function typeLetter() {
+          const word = words[wordIndex];
+
+          if (direction == DIRECTION_FORWARDS) {
+            letterIndex++;
+
+            if (letterIndex == word.length) {
+              direction = DIRECTION_BACKWARDS;
+              clearInterval(wordTypeInterval);
+              setTimeout(startTyping, WORD_STAY_DELAY);
+            }
+          } else if (direction == DIRECTION_BACKWARDS) {
+            letterIndex--;
+
+            if (letterIndex == 0) {
+              nextWord();
+            }
+          }
+
+          const textToType = word.substring(0, letterIndex);
+
+          element.textContent = textToType;
+        }
+
+        function nextWord() {
+          letterIndex = 0;
+          direction = DIRECTION_FORWARDS;
+          wordIndex++;
+
+          if (wordIndex == words.length) {
+            wordIndex = 0;
+          }
+        }
+      }
+    </script>
+
+  <!-- Example Content -->
+  <style>
+    .example {
+      width: 90%;
+      margin: 10% auto 80px;
+      max-width: 960px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #101010;
+      text-align: center;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.33;
+      margin: 16px auto 32px;
+      text-align: center;
+    }
+
+    ul {
+      display: grid;
+      grid-gap: 16px;
+      /* 元素间隔 */
+      list-style-type: none;
+      /* 移除列表默认样式 */
+      padding: 0;
+      /* 移除默认padding */
+    }
+    .example-link{
+      text-decoration: underline;
+    }
+    /* 767px以上使用3栏布局 */
+    @media (min-width: 768px) {
+      ul {
+        grid-template-columns: repeat(3, 1fr);
+        /* 三栏布局 */
+      }
+    }
+
+    /* 468px到767px使用两栏布局 */
+    @media (min-width: 468px) and (max-width: 767px) {
+      ul {
+        grid-template-columns: repeat(2, 1fr);
+        /* 两栏布局 */
+      }
+    }
+
+    /* 467px以下使用单栏布局 */
+    @media (max-width: 467px) {
+      ul {
+        grid-template-columns: 1fr;
+        /* 单栏布局 */
+      }
+    }
+  </style>
+  <div class="example">
+    <h1>Preloading Effect</h1>
+    <p  style="margin-bottom:0;">Make by <a href="https://606design.art/" class="example-link" target="_blank">Rico | 606 DESIGN</a> </p>
+    <p><a class="example-link" href="https://606design.art/" target="_blank">浏览更多动效资产</a> </p>
+    <ul>
+      <li><img src="assets/01.jpg" alt=""></li>
+      <li><img src="assets/02.jpg" alt=""></li>
+      <li><img src="assets/03.jpg" alt=""></li>
+      <li><img src="assets/04.jpg" alt=""></li>
+      <li><img src="assets/05.jpg" alt=""></li>
+      <li><img src="assets/06.jpg" alt=""></li>
+    </ul>
+  </div>
+  <!-- End Example Content -->
+
+
+  </body>
+</html>
