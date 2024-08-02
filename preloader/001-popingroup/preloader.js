@@ -3,29 +3,27 @@ import SiteLoader from './libs/sl.js'
 // import {gsap} from './gsap.min.js'
 // import SiteLoader from 'https://www.unpkg.com/siteloader/dist/sl.js'
 
-
-
-
 document.addEventListener("DOMContentLoaded", (event) => {
   // gsap code here!
   // Splitting(); 
   const sl = new SiteLoader();
   sl.progressSpeed = 20;
-  
+  //设置是否在真实加载完之后计数会提速
+//   sl.needSpeedUp = true; 
 // beforeStart  开始加载前
 // countComplete 整个计数过程结束（进度值到100数字）
 // trueLoadFinish 资源真正地加载完之后就触发（很有可能进度值还没到100）
 // progress 计数加载过程中触发（进度值变化0-100都会触发 每次变化都会触发）
+//   sl.setTargetTextDom('.loading-num');
 
-  sl.setTargetTextDom('.loading-num');
+  sl.addEventListener('progress', (e) => {
+    console.log(e.progress);
+  })
   sl.addEventListener('countComplete', () => {
     console.log('countComplete')
     // qs(".loading-screen").remove();
     loadingAnimation();
   });
-  sl.addEventListener('progress', (e) => {
-    console.log(e.progress)
-  })
   sl.startLoad();
 
  });
@@ -53,7 +51,6 @@ function initialAnimations(){
 
 function enterAnimation(){
   const mySplitTextLoading = Splitting({ target: '#pink-loading', by: 'chars' });
-  
   // charsLoading = mySplitTextLoading.chars;
   const charsLoading = document.querySelectorAll('#pink-loading .char');
   const tlLoading = gsap.timeline()
@@ -91,7 +88,7 @@ const ease = "power1.inOut"
 const delay = .8
 const per_text = qs('.loading-screen__percent')
 gsap.to('.loading-screen__progress', { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: .8, delay: delay, ease: ease })
-//gsap.to('.loading-screen__text', { backgroundPosition: '0% 100%', duration: .8, delay: delay, ease: ease })
+gsap.to('.loading-screen__text', { backgroundPosition: '0% 100%', duration: .8, delay: delay, ease: ease })
 gsap.to('.loading-screen__percent', { backgroundPosition: '0% 100%', duration: .8, delay: delay, ease: ease, 
     onUpdate: function() {
         per_text.innerHTML = Math.floor(this.progress() * 100)+'%'

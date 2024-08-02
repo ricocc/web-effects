@@ -2,7 +2,7 @@
 /* VARIABLES */
 /* COLOR */
 :root {
-  --color-white: #FFFFFF;
+  /* --color-white: #FFFFFF;
   --color-beige: #F9F4EE;
   --color-black: #151515;
   --color-green: #11694B;
@@ -10,12 +10,30 @@
   --color-pink: #FFDDDD;
   --color-dark-pink: #FCACC5;
   --color-blue: #5101FF;
-  --color-red: #BE1E17;
+  --color-red: #BE1E17; */
+  --color-white: #FFFFFF;
+  --color-beige: #F9F4EE;
+  --color-black: #151515;
+  --color-green: #158e62;
+  --color-yellow: #FFCB30;
+  --color-pink: #f7f3ef;
+  --color-dark-pink: #f0bdcd;
+  --color-blue: #1b6ce2;
+  --color-red: #20458a;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+.abril-fatface-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: bold;
+  font-style: normal;
 }
 
 body {
   background-color: var(--color-white);
   color: var(--color-black);
+  font-family: "Dela Gothic One", 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  font-style: normal;
 }
 
 .bg-white {
@@ -265,21 +283,35 @@ From pixels to rem (change root font-size to 20px) --> https://nekocalc.com/es/p
 
 .loading-screen__start-button-mobile {
   position: absolute;
-  top: 60vh;
+  top: 62vh;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   z-index: 3;
   transition: transform .3s cubic-bezier(.58,.01,.44,1);
+}
+.popin-button {
+  height: 48px;
+  line-height: 48px;
+  padding: 0 50px;
+  background-color: #fce4c0;
+  color: var(--color-black);
+  font-size: 22px;
+  border-radius: 18px;
+  border: none;
+  box-shadow: 0 2px 0 0  var(--color-black);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin:20px auto;
 }
 
 .loading-screen:not(.start-hover) .loading-screen__start-button-mobile {
   transform: translate(-50%, -50%) scale(0);
 }
 
-@media screen and (max-width: 1540px) {
+@media screen and (max-width: 1280px) {
   .loading-screen__percent {
       font-size: 70px;
-      padding-right: var(--space-6);
+      padding-right: var(--space-4);
   }
   .loading-smile {
       bottom: calc(var(--space-3) + var(--space-2));
@@ -297,18 +329,13 @@ From pixels to rem (change root font-size to 20px) --> https://nekocalc.com/es/p
   }
 }
 @media screen and (max-width: 980px) {
-  .loading-screen__percent {
-      font-size: 40px;
-  }
   .loading-smile {
       bottom: calc(var(--space-3));
       right: calc(var(--space-2) + var(--space-1));
   }
 }
 @media screen and (max-width: 600px) {
-  .loading-screen__percent {
-      font-size: 34px;
-  }
+
   .loading-smile {
       bottom: calc(var(--space-3) + var(--space-1));
       right: calc(var(--space-3) + var(--space-1));
