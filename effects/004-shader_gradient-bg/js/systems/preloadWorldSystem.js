@@ -7,7 +7,7 @@ export class PreloadWorldSystem {
 		});
 
 		let imageObj = entityManager.createEntity({
-			imagePath: "data/colors.png"
+			imagePath: "data/color002.svg"
 		});
 
 
