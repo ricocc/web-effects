@@ -1,0 +1,225 @@
+@charset "utf-8";
+/***
+    The new CSS reset - version 1.8.5 (last updated 14.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" attribute is exclud, because otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+/* style */
+html{
+  font-size: 16px;
+  font-family: -apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial!important;
+}
+body{
+  background-color: #f5f5f5;
+}
+.bar{
+  background-color: #3A8CF7;
+  height: 6px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:0;
+}
+.wrapper{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.container{
+  margin:72px auto;
+  max-width: 800px;
+  width: 92%;
+}
+.container > div{
+  display: inline-block;
+  width: 100%;
+}
+.header{
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+.title{
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: #3A8CF7;
+}
+.link{
+  font-size: 18px;
+  color: #2d2d2d;
+  font-weight: normal;
+  text-align: center;
+}
+.link a{
+  color: #2d2d2d;
+  text-decoration: underline;
+  display: inline-block;
+  padding-left: 4px;
+}
+.link a:hover{
+  color: #3A8CF7;
+}
+.btn,.btn:link{
+  margin: 32px auto 48px;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 12px;
+  height: auto;
+  padding: 12px 26px;
+  display: inline-block;
+  background-color: #fff;
+  color: #000;
+  border: solid 1px #000;
+  box-shadow: 0 2px 0 0 #000;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
+.btn:hover{
+  color: #3A8CF7;
+  border: solid 1px #3A8CF7;
+  transform: translateY(2px);
+  box-shadow: 0 0px 0 0 #000;
+}
+.figure{
+  position: relative;
+  margin:0 auto 16px;
+  display: inline-block;
+}
+.figure img{
+  margin:0 auto;
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+.figure img:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 0 #000;
+}
+.col-12{
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .title{
+    font-size: 48px;
+  }
+  .figure{
+    margin: 0 auto 24px;
+  }
+  .figure-sm-row{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin:0 auto 24px;
+  }
+  .col-sm-6{
+    width: 50%;
+    width: calc(50% - 16px);
+    display: inline-block;
+  }
+}

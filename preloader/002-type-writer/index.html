@@ -8,7 +8,7 @@
   </head>
   <body>
     <!-- START preloader-wrapper -->
-    <div class="preloader-wrapper" id="preloader">
+    <div class="preloader-wrapper" id="preloader" style="">
       <div class="preloader-inner">
         <h1 class="typing-text preloader-text"></h1>
       </div>
@@ -171,77 +171,28 @@
       }
     </script>
 
-  <!-- Example Content -->
-  <style>
-    .example {
-      width: 90%;
-      margin: 10% auto 80px;
-      max-width: 960px;
-    }
+  <!-- Example Content 内容示例，不需复制 -->
+   <style>
+    body, html {  
+        margin: 0;  
+        padding: 0;  
+        height: 100%; /* 使得body和html的高度都为100% */  
+        overflow-y: hidden;
+    }  
+    /* 设置iframe样式 */  
+    iframe {  
+        margin:0 auto;
+        padding: 0;
+        width: 100%; /* 宽度为父容器的100% */  
+        height: auto;
+        min-height: 100vh; /* 高度为视口高度的100%，即全屏高度 */  
+        border: none; /* 移除iframe的边框 */  
+        /* 如果需要滚动条，可以取消注释以下行 */  
+        overflow: auto;  
 
-    h1 {
-      font-size: 36px;
-      font-weight: bold;
-      color: #101010;
-      text-align: center;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.33;
-      margin: 16px auto 32px;
-      text-align: center;
-    }
-
-    ul {
-      display: grid;
-      grid-gap: 16px;
-      /* 元素间隔 */
-      list-style-type: none;
-      /* 移除列表默认样式 */
-      padding: 0;
-      /* 移除默认padding */
-    }
-    .example-link{
-      text-decoration: underline;
-    }
-    /* 767px以上使用3栏布局 */
-    @media (min-width: 768px) {
-      ul {
-        grid-template-columns: repeat(3, 1fr);
-        /* 三栏布局 */
-      }
-    }
-
-    /* 468px到767px使用两栏布局 */
-    @media (min-width: 468px) and (max-width: 767px) {
-      ul {
-        grid-template-columns: repeat(2, 1fr);
-        /* 两栏布局 */
-      }
-    }
-
-    /* 467px以下使用单栏布局 */
-    @media (max-width: 467px) {
-      ul {
-        grid-template-columns: 1fr;
-        /* 单栏布局 */
-      }
-    }
-  </style>
-  <div class="example">
-    <h1>Preloading Effect</h1>
-    <p  style="margin-bottom:0;">Make by <a href="https://606design.art/" class="example-link" target="_blank">Rico | 606 DESIGN</a> </p>
-    <p><a class="example-link" href="https://606design.art/" target="_blank">浏览更多动效资产</a> </p>
-    <ul>
-      <li><img src="assets/01.jpg" alt=""></li>
-      <li><img src="assets/02.jpg" alt=""></li>
-      <li><img src="assets/03.jpg" alt=""></li>
-      <li><img src="assets/04.jpg" alt=""></li>
-      <li><img src="assets/05.jpg" alt=""></li>
-      <li><img src="assets/06.jpg" alt=""></li>
-    </ul>
-  </div>
+    }  
+   </style>
+    <iframe src="dont-copy/home/home.html" frameBorder="0" ></iframe>
   <!-- End Example Content -->
 
 
