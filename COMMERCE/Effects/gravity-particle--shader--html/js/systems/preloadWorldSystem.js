@@ -7,10 +7,10 @@ export class PreloadWorldSystem {
 			preloadedImages: {
 
 				n: entityManager.createEntity({
-					imagePath: "data/n.png"
+					imagePath: "data/love.png"
 				}),
 				s: entityManager.createEntity({
-					imagePath: "data/s.png"
+					imagePath: "data/face.png"
 				}),
 			}
 		});
